@@ -19,7 +19,7 @@ Community
 ---------
 
 Please feel welcome to fork!  I value forks with diverging ideas over
-spending much time arguing about merges.[#]_
+spending much time arguing about merges. [#]_
 
 .. [#] Note, this means the feature identifiers may collide, so `git` revisions will save us, so long as the hash function holds up.
 
