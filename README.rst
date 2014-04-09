@@ -44,8 +44,33 @@ G: User Privacy
 
 Users cannot be linked to accounts or ownership of currency.
 
+G: User-Linked Accounts
+.......................
+
+Accounts are linked to users by some mechanism.
+
+.. admonition:: example
+
+  A system which ties accounts to smart cards issued by some
+  identification authority would strive to achieve this goal.
+
 Account Privacy
 ...............
+
+G: User Identity Transparency
+'''''''''''''''''''''''''''''
+
+Every account can be publicly associated with a user's identity.
+
+G: User Identity Privacy
+''''''''''''''''''''''''
+
+Accounts cannot be associated with user identity by anyone except that user.
+
+G: Account Balance Transparency
+'''''''''''''''''''''''''''''''
+
+The balance of an account can be verified by anyone.
 
 G: Account Balance Privacy
 ''''''''''''''''''''''''''
@@ -54,6 +79,15 @@ The balance of an account cannot be verified by anyone other than the account ho
 
 Transaction Privacy
 ...................
+
+.. note:: In this section "sender" and "recipient" refer to accounts,
+not users.  The association between users and accounts is separately
+considered in `Account Privacy`_.
+
+G: Transaction Sender Transparency
+''''''''''''''''''''''''''''''''''
+
+The sender of a transaction can be verified by any party.
 
 G: Transaction Sender Privacy (Complete)
 ''''''''''''''''''''''''''''''''''''''''
@@ -66,11 +100,21 @@ G: Transaction Sender Privacy (Partial)
 The sender of a transaction cannot be verified by any party other than
 the recipient.
 
+G: Transaction Recipient Transparency
+'''''''''''''''''''''''''''''''''''''
+
+The recipient of a transaction can be verified by any party.
+
 G: Transaction Recipient Privacy
 ''''''''''''''''''''''''''''''''
 
 The recipient of a transaction cannot be verified by any party other
 than the sender.
+
+G: Transaction Amount Transparency
+''''''''''''''''''''''''''''''''''
+
+The amount of currency in a transaction can be verified by any party.
 
 G: Transaction Amount Privacy
 '''''''''''''''''''''''''''''
