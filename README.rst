@@ -15,6 +15,8 @@ this document.
 Much of the ideas here start as deltas from `bitcoin`_ design as a source
 of inspiration.
 
+.. _`bitcoin`: https://bitcoin.org/
+
 Community
 ---------
 
