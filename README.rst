@@ -167,3 +167,63 @@ The number of currency units controlled by participants is publicly known.
 .. note:: In `bitcoin`_, spends to nonsense addresses or lost private
     keys compromise this goal.
 
+
+Disorganized Brainstorm
+=======================
+
+Alternative Double Spend Rules
+------------------------------
+
+Mal sends 1 BTC to Alice for a sandwich.  Then, Mal sends the same 1 BTC
+(same outputs) to Bob for a soda.  Sometime later either Alice or Bob
+suddenly lose their BTC as the consensus shifts away from the history
+where they were paid.
+
+If, instead, Mal sends 1 BTC to Alice for a sandwich and double spends
+that 1 BTC back to Mal, then there is a chance that Mal retains control
+over that BTC and gets a free sandwich.
+
+What if, instead of any recipient of a transaction eventually retaining
+double-spent coins, those coins have a different fate to lower Mal's
+incentive to double-spend?
+
+Double-Spend Records
+....................
+
+Let's suppose the offending transactions are both (or all) incorporated
+into the block chain.  This allows future transactions to rely on
+double-spends in some manner.
+
+With bitcoin, all unspent outputs are valid, so we could preserve this
+invariant by introducing a new "double spend record" which is a kind of
+transaction that references offending outputs.  The outputs of this record
+(if any) would preserve the invariant.  (Note: If there are zero outputs,
+the invariant is still preserved.)
+
+Destroyed Coins
+...............
+
+Perhaps the simplest rule is for the coins to be destroyed.  Who would
+submit a double-spend record and why?
+
+Paid to the Miner
+.................
+
+Another rule is that the double-spent coins are paid to the miner who
+includes the double-spend record in their block.
+
+This has a (possibly severe) drawback: miners would then be in a
+privileged position and would be incentivized to double-spend more
+than non-miners.
+
+However, if Mal is not a miner, the trick of sending one of the
+double-spends back to themself no longer provides any benefit.  In fact,
+Mal loses 1 BTC regardless, so the only reason to do this is to spite
+Alice.
+
+If Mal is a miner, then the chance of recovering the double-spent coin is
+directly proportional to the chance of mining *any block in the future*.
+
+This is a deal breaker...  every miner could retroactively double-spend
+all of their coins back to themselves by including double spend records
+for all of their previous transactions on every mine attempt.
